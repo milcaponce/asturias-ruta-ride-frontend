@@ -1,0 +1,9 @@
+@layer base {
+    body {
+    @apply bg-backgroundLight text-textPrimary font-sans;
+    }
+
+    h1, h2, h3, h4 {
+    @apply font-heading text-brandDarkGreen;
+    }
+}
