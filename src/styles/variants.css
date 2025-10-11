@@ -1,9 +1,23 @@
 @layer base {
-    body {
+  body {
     @apply bg-backgroundLight text-textPrimary font-sans;
-    }
+  }
 
-    h1, h2, h3, h4 {
+  h1, h2, h3, h4 {
     @apply font-heading text-brandDarkGreen;
-    }
+  }
+
+  a {
+    @apply text-brandGreen underline-offset-2 hover:text-brandDarkGreen;
+  }
+}
+
+@layer utilities {
+  .btn-primary {
+    @apply bg-brandGreen text-white py-2 px-4 rounded-lg hover:bg-brandDarkGreen focus:outline-none focus:ring-4 focus:ring-brandGreen/30;
+  }
+
+  .btn-accent {
+    @apply bg-accentBlue text-white py-2 px-4 rounded-lg hover:bg-accentRed;
+  }
 }
