@@ -1,7 +1,16 @@
+/* Tailwind  */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Custom variants */
+@import "./styles/variants.css";
+
 @import "@fontsource/montserrat/400.css"; /* Regular */
 @import "@fontsource/montserrat/600.css"; /* SemiBold */
 @import "@fontsource/montserrat/700.css"; /* Bold */
 @import "@fontsource/lato/400.css";        /* Regular */
+@import "@fontsource/lato/700.css";
 
-@import "tailwindcss";
+
 
