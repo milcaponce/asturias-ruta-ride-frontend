@@ -1,10 +1,29 @@
-import RouteCard from "./components/card/RouteCard"
-
+import { Routes, Route, Link } from "react-router-dom";
+import RoutesPage from "./pages/RoutesPage";
 
 export default function App() {
   return (
-    <main className="min-h-screen bg-backgroundLight flex items-center justify-center p-8">
-      <RouteCard />
-    </main>
+    <>
+      <header>
+        <nav aria-label="Navegación principal">
+          <ul className="flex gap-4 p-4 bg-gray-100">
+            <li>
+              <Link
+                to="/routes"
+                className="text-brandDarkGreen hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brandDarkGreen"
+              >
+                Rutas
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <Routes>
+          <Route path="/routes" element={<RoutesPage />} />
+        </Routes>
+      </main>
+    </>
   );
 }
