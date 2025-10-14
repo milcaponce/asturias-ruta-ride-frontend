@@ -16,7 +16,7 @@ export default function RouteCard({ title, image, description }) {
                 {description || "This is a preview of the route description. The data will come from the database."}
                 </p>
 
-                <button className="btn-primary">Ver detalles</button>
+                <button type="button" className="btn-primary">Ver detalles</button>
             </div>
         </article>
     );
