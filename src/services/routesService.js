@@ -4,11 +4,13 @@ export async function fetchRoutes() {
     console.log("🔍 Fetching routes from:", apiUrl);
 
     try {
-        const response = await fetch(apiUrl, {
-            headers: {
-                'Authorization': 'Basic ' + btoa('myuser:secret')
-            }
-        }); 
+        // const response = await fetch(apiUrl, {
+        //     headers: {
+        //         'Authorization': 'Basic ' + btoa('myuser:secret')
+        //     }
+        // }); 
+
+        const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error(`Error fetching routes: ${response.status}`);
         }
