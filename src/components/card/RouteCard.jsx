@@ -12,11 +12,23 @@ export default function RouteCard({route}) {
                 {route.name || "Sample Route"}
                 </h2>
 
+                <p className="text-textMuted mb-2">
+                    <strong>Zona:</strong> {route.area || "Desconocida"}
+                </p>
+
+                <p className="text-textMuted mb-2">
+                    <strong>Dificultad:</strong> {route.difficulty || "N/A"}
+                </p>
+
+                <p className="text-textMuted mb-2">
+                    <strong>Kilómetros:</strong> {route.kilometres || "?"} km
+                </p>
+
                 <p className="text-textMuted mb-3">
                 {route.description || "This is a preview of the route description. The data will come from the database."}
                 </p>
 
-                <button type="button" className="btn-primary">Ver detalles</button>
+                <Link to={`/routes/${route.idRoute || ''}`} className="btn-primary">Ver detalles</Link>
             </div>
         </article>
     );
