@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function RouteCard({route}) {
     return (
         <article className=" flex flex-col bg-white rounded-xl shadow-md overflow-hidden w-full max-w-md transition-transform duration-200 hover:scale-[1.02] h-[500px]">
@@ -33,7 +35,10 @@ export default function RouteCard({route}) {
                     </p>
                 </div>
 
-                {/* <Link to={`/routes/${route.idRoute || ''}`} className="btn-primary">Ver detalles</Link> */}
+                <div className="flex justify-center mt-4">
+                    <Link to={`/routes/${route.idRoute || ''}`} className="btn-primary px-6 py-2 text-center">Ver detalles
+                    </Link>
+                </div>
             </div>
         </article>
     );

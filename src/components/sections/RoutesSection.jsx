@@ -60,9 +60,7 @@ export default function RoutesSection({ title = "Todas las rutas" }) {
 
       {routes.length > 0 ? (
         routes.map((route) => (
-          <article key={route.id}>
-            <RouteCard route={route} />
-          </article>
+          <RouteCard key={route.idRoute} route={route} />
         ))
       ) : (
         <p className="col-span-full text-center text-textMuted">
