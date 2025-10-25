@@ -46,8 +46,8 @@ export default function RouteDetailPage() {
             <div className="mt-8 text-center">
                 <Link
                 to="/routes"
-                className="px-5 py-2 bg-brandDarkGreen text-white rounded-lg hover:bg-green-700 transition"
-                >← Volver a rutas
+                className="btn-primary"
+                > Volver a rutas
                 </Link>
             </div>
         </div>
