@@ -40,7 +40,9 @@ export default function RouteDetailPage() {
             <p className="mt-4 text-gray-700">{route.description || "No hay descripción disponible para esta ruta."}</p>
 
             <RouteMap
-            mapUrl="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24356.558727828982!2d-4.048592142569933!3d40.26309022022122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2es!4v1761309057021!5m2!1ses!2es"
+            latitude={route.latitude}
+            longitude={route.longitude}
+            name={route.name}
             />
 
             <div className="mt-8 text-center">
