@@ -28,8 +28,8 @@ export default function RegisterPage() {
                         name: data.name,
                         email: data.email,
                         password: data.password,
-                        phoneNumber: data.phone || null,
-                        profileImageUrl: data.profileImage || null,
+                        phone: data.phone || null,
+                        profileImage: data.profileImage || null,
                     }),
                 });
 
