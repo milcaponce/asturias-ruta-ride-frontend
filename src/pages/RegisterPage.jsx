@@ -1,7 +1,8 @@
-import { useState } from "react";
+
 import { registerUser } from "../services/authService";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useState, useEffect } from "react";
 
 export default function RegisterPage() {
     const {
@@ -15,6 +16,13 @@ export default function RegisterPage() {
         const [message, setMessage] = useState(null);
         const [loading, setLoading] = useState(false);
         const password = watch("password");
+
+        useEffect(() => {
+            if (message) {
+                const timer = setTimeout(() => setMessage(null), 5000);
+                return () => clearTimeout(timer);
+            }
+        }, [message]);
 
         const onSubmit = async (data) => {
             setLoading(true);
