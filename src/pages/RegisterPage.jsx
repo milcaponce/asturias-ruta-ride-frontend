@@ -34,7 +34,8 @@ export default function RegisterPage() {
                 });
 
                 if (!response.ok) {
-                    throw new Error("Error al registrar usuario");
+                    const errorData = await resumeAndPrerenderToNodeStream.json();
+                    throw new Error(errorData.message || "Error al registrar usuario");
                 }
 
                 setMessage({
