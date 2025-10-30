@@ -198,6 +198,10 @@ export default function RegisterPage() {
                                 type="url"
                                 {...register("profileImage", {
                                     required: "La imagen es obligatoria",
+                                    pattern: {
+                                        value: /^https?:\/\/.*\.(jpeg|jpg|png|gif|webp)$/i,
+                                        message: "The image URL must end with .jpg, .jpeg, .png, .gif or .webp",
+                                    },
                                 })}
                                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brandGreen outline-none"
                             />
