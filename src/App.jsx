@@ -10,7 +10,7 @@ export default function App() {
     <>
       <Header />
 
-      <main>
+      <main className="pt-20">
         <Routes>
           <Route path="/home" element={<HomePage />} />
           <Route path="/routes" element={<RoutesPage />} />
