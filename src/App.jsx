@@ -1,4 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
+import Header from "./components/header/Header";
 import RoutesPage from "./pages/RoutesPage";
 import RouteDetailPage from "./pages/RouteDetailPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -7,20 +8,7 @@ import HomePage from "./pages/HomePage";
 export default function App() {
   return (
     <>
-      <header>
-        <nav aria-label="Navegación principal">
-          <ul className="flex gap-4 p-4 bg-gray-100">
-            <li>
-              <Link
-                to="/routes"
-                className="text-brandDarkGreen hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brandDarkGreen"
-              >
-                Rutas
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
       <main>
         <Routes>
