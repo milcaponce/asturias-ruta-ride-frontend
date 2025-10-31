@@ -2,6 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import RoutesPage from "./pages/RoutesPage";
 import RouteDetailPage from "./pages/RouteDetailPage";
 import RegisterPage from "./pages/RegisterPage";
+import HomePage from "./pages/HomePage";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
 
       <main>
         <Routes>
+          <Route path="/home" element={<HomePage />} />
           <Route path="/routes" element={<RoutesPage />} />
           <Route path="/routes/:id" element={<RouteDetailPage />} />
           <Route path="/register" element={<RegisterPage />} />
