@@ -24,3 +24,19 @@ export async function verifyEmail(token) {
 
     return await response.text(); 
 }
+    export async function loginRequest(credentials) {
+    const response = await fetch("http://localhost:8080/api/v1/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(credentials),
+    });
+
+    if (!response.ok) {
+        const errorMsg = response.status === 403
+            ? "Cuenta no verificada"
+            : "Credenciales inválidas";
+        throw new Error(errorMsg);
+    }
+
+    return await response.json();
+}

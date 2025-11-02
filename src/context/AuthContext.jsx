@@ -3,48 +3,33 @@ import { createContext, useContext, useState, useEffect } from "react";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const [token, setToken] = useState(null);
-    const [user, setUser] = useState(null);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [logoutMessage, setLogoutMessage] = useState("");
+    const [token, setToken] = useState(() => {
+        return localStorage.getItem("authToken") || null;
+    });
 
-  // Leer el usuario desde LS
-    useEffect(() => {
-        const storedToken = localStorage.getItem("rutaRideToken");
-        if (storedToken) {
-            setToken(storedToken);
-            setIsAuthenticated(true);
-        }
-    }, []);
+    const isAuthenticated = !!token;
 
-  // Guarda usuario al hacer login en LS
-    function login(jwtToken) {
-        localStorage.setItem("rutaRideToken", jwtToken);
+    const login = (jwtToken) => {
+        localStorage.setItem("authToken", jwtToken);
         setToken(jwtToken);
-        setIsAuthenticated(true);
-    }
+    };
 
-  // Cerrar sesión - Limpia el LS
-    function logout() {
-        localStorage.removeItem("rutaRideToken");
+    const logout = () => {
+        localStorage.removeItem("authToken");
         setToken(null);
-        setIsAuthenticated(false);
-        setUser(null);
-
-        setLogoutMessage("Sesión cerrada correctamente");
-
-    // Limpiar mensaje
-        setTimeout(() => setLogoutMessage(""), 3000);
-    }
+    };
 
     return (
-        <AuthContext.Provider value={{ token, user, setUser, isAuthenticated, login, logout, logoutMessage }}>
+        <AuthContext.Provider value={{ token, isAuthenticated, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
 }
 
-
 export function useAuth() {
-    return useContext(AuthContext);
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error("useAuth must be used within an AuthProvider");
+    }
+    return context;
 }
