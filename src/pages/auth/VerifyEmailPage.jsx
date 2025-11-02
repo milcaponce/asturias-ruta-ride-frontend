@@ -43,7 +43,7 @@ export default function VerifyEmailPage() {
                 <p className="text-textPrimary mb-6">
                 Tu correo fue validado correctamente. Ya puedes iniciar sesión.
                 </p>
-                    <Link to="/login" className="btn-primary">Ir a Iniciar Sesión</Link>
+                    <Link to="/login" className="btn-success">Ir a Iniciar Sesión</Link>
             </>
         )}
 
@@ -53,7 +53,7 @@ export default function VerifyEmailPage() {
                     <p className="text-textPrimary mb-6">
                     El enlace de verificación es incorrecto o expiró.
                     </p>
-                        <Link to="/register" className="btn-accent text-white hover:text-white">Registrarse nuevamente</Link>
+                        <Link to="/register" className="btn-error text-white hover:text-white">Registrarse nuevamente</Link>
                 </>
             )}
             </div>
