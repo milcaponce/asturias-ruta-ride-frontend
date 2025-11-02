@@ -1,48 +1,63 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { verifyEmail } from "../../services/authService";
 
 export default function VerifyEmailPage() {
     const [searchParams] = useSearchParams();
-    const [status, setStatus] = useState({ loading: true, ok: false, message: "" });
+    const token = searchParams.get("token");
+
+    const [status, setStatus] = useState("loading"); // loading | success | error
 
     useEffect(() => {
-        const token = searchParams.get("token");
         if (!token) {
-            setStatus({ loading: false, ok: false, message: "Token no encontrado en la URL." });
+            setStatus("error");
             return;
         }
 
-        verifyEmail(token)
-            .then((msg) => setStatus({ loading: false, ok: true, message: msg || "Cuenta verificada correctamente." }))
-            .catch((err) => setStatus({ loading: false, ok: false, message: err.message || "Error al verificar." }));
-        }, [searchParams]);
+    async function verifyEmail() {
+        try {
+            const response = await fetch(`http://localhost:8080/api/v1/auth/verify?token=${token}`);
+            if (!response.ok) throw new Error("Verification failed");
 
-    if (status.loading) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-backgroundLight">
-                <p className="text-textMuted">Verificando tu cuenta…</p>
-            </div>
-        );
+            setStatus("success");
+            } catch (err) {
+            setStatus("error");
+        }
     }
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-backgroundLight px-4">
-            <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-lg text-center">
-                <h1 className="text-2xl font-bold mb-4 text-brandDarkGreen">
-                    {status.ok ? "¡Tu correo ha sido verificado!" : "No se pudo verificar tu correo"}
-                </h1>
-                <p className="text-textMuted mb-6">{status.message}</p>
+        verifyEmail();
+    }, [token]);
 
-                {status.ok ? (
-                    <div className="space-x-3">
-                        <Link to="/routes" className="btn-primary inline-block">Ir a Rutas</Link>
-                        <Link to="/login" className="btn-accent inline-block">Iniciar sesión</Link>
-                    </div>
-                ) : (
-                    <Link to="/" className="btn-primary inline-block">Volver al inicio</Link>
-                )}
+    return (
+        <div className="flex items-center justify-center min-h-screen bg-backgroundLight px-4">
+            <div className="bg-white shadow-lg rounded-lg p-8 max-w-md text-center border border-gray-200">
+                {status === "loading" && (
+            <>
+                <h2 className="text-xl font-semibold text-brandDarkGreen mb-4">Verificando tu cuenta...</h2>
+                <p className="text-textMuted">Por favor espera un momento.</p>
+            </>
+        )}
+
+                {status === "success" && (
+            <>
+                <h2 className="text-2xl font-bold text-brandGreen mb-4">✅ ¡Cuenta verificada!</h2>
+                <p className="text-textPrimary mb-6">
+                Tu correo fue validado correctamente. Ya puedes iniciar sesión.
+                </p>
+                    <Link to="/login" className="btn-primary">Ir a Iniciar Sesión</Link>
+            </>
+        )}
+
+                {status === "error" && (
+                <>
+                    <h2 className="text-2xl font-bold text-accentRed mb-4">❌ Enlace no válido</h2>
+                    <p className="text-textPrimary mb-6">
+                    El enlace de verificación es incorrecto o expiró.
+                    </p>
+                        <Link to="/register" className="btn-accent text-white hover:text-white">Registrarse nuevamente</Link>
+                </>
+            )}
             </div>
         </div>
     );
+
 }
