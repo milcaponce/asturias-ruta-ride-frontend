@@ -5,6 +5,7 @@ import RouteDetailPage from "./pages/RouteDetailPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import VerifyEmailPage from "./pages/auth/VerifyEmailPage";
+import LoginPage from "./pages/auth/LoginPage";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/routes/:id" element={<RouteDetailPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/verify" element={<VerifyEmailPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </main>
     </>
