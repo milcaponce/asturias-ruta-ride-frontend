@@ -54,7 +54,7 @@ src/
 │ ├── auth/ # Páginas de autenticación
 │ └── routes/ # Páginas relacionadas a rutas
 ├── services/ # Lógica de comunicación con el backend (HTTP fetch)
-├── hooks/ # Custom hooks (si aplica)
+├── hooks/ # Custom hooks 
 ├── assets/ # Imágenes, fuentes, iconos
 ├── App.jsx # Configuración de rutas
 └── main.jsx # Render principal
