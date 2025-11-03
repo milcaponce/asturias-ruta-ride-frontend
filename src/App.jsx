@@ -18,7 +18,7 @@ export default function App() {
           <Route path="/routes" element={<RoutesPage />} />
           <Route path="/routes/:id" element={<RouteDetailPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/verify" element={<VerifyEmailPage />} />
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </main>
