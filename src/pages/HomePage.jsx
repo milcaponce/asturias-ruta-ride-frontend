@@ -20,7 +20,7 @@ export default function HomePage() {
 
         
                 <div className="relative z-10 max-w-2xl px-6 text-white flex flex-col items-center">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold drop-shadow-xl leading-tight text-white">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold leading-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)]">
                         Descubre Asturias a tu Ritmo
                     </h1>
 
