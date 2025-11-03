@@ -6,6 +6,7 @@ import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import VerifyEmailPage from "./pages/auth/VerifyEmailPage";
 import LoginPage from "./pages/auth/LoginPage";
+import FAQPage from "./pages/FAQPage";
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/verify-email" element={<VerifyEmailPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/preguntas-frecuentes" element={<FAQPage />} />
         </Routes>
       </main>
     </>
