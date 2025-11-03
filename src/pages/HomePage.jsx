@@ -57,10 +57,6 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
-
-            <footer className="py-4 text-center text-sm text-textMuted bg-backgroundLight">
-                © {new Date().getFullYear()} Ruta&Ride. Todos los derechos reservados.
-            </footer>
         </>
     );
 }
