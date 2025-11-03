@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-//import { useAuth } from "../../context/AuthContext";
-//import LoginModal from "../login_modal/LoginModal";
 import logo from "../../assets/logos/RutaLogo.png";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    //const [isLoginModalOpen, setLoginModalOpen] = useState(false);
     const isAuthenticated = false;
     const user = { name: "Invitado" };
     const navigate = useNavigate();
 
-    //const openLoginModal = () => setLoginModalOpen(true);
-    //const closeLoginModal = () => setLoginModalOpen(false);
-
     const handleAreaClick = () => {
         navigate("/user-area");
     };
-
+    
+    const closeMenu = () => setIsMenuOpen(false);
+    
     return (
         <>
             <header className="bg-white border-b border-backgroundAlt shadow-sm fixed w-full z-50">
@@ -98,28 +94,36 @@ const Header = () => {
         {/* Mobile Menu */}
                 {isMenuOpen && (
                     <nav className="md:hidden bg-white border-t border-backgroundAlt py-4 px-6 space-y-3 font-semibold text-brandDarkGreen">
-                        <Link to="/" className="block hover:text-brandGreen transition-colors duration-200">
+                        <Link 
+                        to="/home" 
+                        onClick={closeMenu}
+                        className="block hover:text-brandGreen transition-colors duration-200">
                             Inicio
                         </Link>
-                        <Link to="/routes" className="block hover:text-brandGreen transition-colors duration-200"
+                        <Link 
+                        to="/routes"
+                        onClick={closeMenu} 
+                        className="block hover:text-brandGreen transition-colors duration-200"
                         >
                             Rutas
                         </Link>
-                        <Link to="/preguntas-frecuentes" className="block hover:text-brandGreen transition-colors duration-200"
+                        <Link 
+                        to="/preguntas-frecuentes"
+                        onClick={closeMenu}
+                        className="block hover:text-brandGreen transition-colors duration-200"
                         >
                             Preguntas Frecuentes
                         </Link>
-                        <Link to="/contacto" className="block hover:text-brandGreen transition-colors duration-200"
+                        <Link 
+                        to="/contacto" 
+                        onClick={closeMenu}
+                        className="block hover:text-brandGreen transition-colors duration-200"
                         >
                             Contacto
                         </Link>
                     </nav>
                 )}
             </header>
-
-            {/* {!isAuthenticated && (
-                <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
-            )} */}
         </>
     );
 };

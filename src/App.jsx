@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Header from "./components/header/Header";
 import RoutesPage from "./pages/RoutesPage";
 import RouteDetailPage from "./pages/RouteDetailPage";
@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import VerifyEmailPage from "./pages/auth/VerifyEmailPage";
 import LoginPage from "./pages/auth/LoginPage";
 
+
 export default function App() {
   return (
     <>
@@ -14,6 +15,7 @@ export default function App() {
 
       <main className="pt-20">
         <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/routes" element={<RoutesPage />} />
           <Route path="/routes/:id" element={<RouteDetailPage />} />
