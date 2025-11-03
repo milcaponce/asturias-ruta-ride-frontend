@@ -17,10 +17,10 @@ const Header = () => {
     return (
         <>
             <header className="bg-white border-b border-backgroundAlt shadow-sm fixed w-full z-50">
-                <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+                <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2">
           {/* Logo */}
                     <Link to="/home" className="flex items-center space-x-2">
-                        <img src={logo} alt="Logo" className="h-12 w-auto" />
+                        <img src={logo} alt="Logo" className="h-16 w-auto" />
                     </Link>
 
           {/* Desktop Menu */}
