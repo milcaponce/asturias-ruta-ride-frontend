@@ -9,6 +9,7 @@ import VerifyEmailPage from "./pages/auth/VerifyEmailPage";
 import LoginPage from "./pages/auth/LoginPage";
 import FAQPage from "./pages/FAQPage";
 import SharedTripsPage from "./pages/SharedTripsPage";
+import TermsPage from "./pages/terms/TermsPage";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/verify-email" element={<VerifyEmailPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/preguntas-frecuentes" element={<FAQPage />} />
+          <Route path="/terms" element={<TermsPage />} />
 
           {/* 🔒 FUTURA FEATURE: Viajes Compartidos */}
           {/*<Route path="/viajes-compartidos" element={<SharedTripsPage />} />*/}
