@@ -1,5 +1,6 @@
 import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import RoutesPage from "./pages/RoutesPage";
 import RouteDetailPage from "./pages/RouteDetailPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -29,6 +30,7 @@ export default function App() {
           {/*<Route path="/viajes-compartidos" element={<SharedTripsPage />} />*/}
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }
