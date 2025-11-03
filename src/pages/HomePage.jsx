@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import heroImg from "../assets/images/hero/MontanaLago.jpg";
 
 export default function HomePage() {
+    
+    useEffect(() => {
+        const hero = document.getElementById("hero-content");
+        setTimeout(() => {
+            hero?.classList.add("show");
+    }, 80);
+}, []);
+
     return (
         <>
             <section
@@ -19,7 +28,10 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-brandDarkGreen/55 md:bg-brandDarkGreen/40"></div>
 
         
-                <div className="relative z-10 max-w-2xl px-6 text-white flex flex-col items-center">
+                <div
+                    id="hero-content"
+                    className="relative z-10 max-w-2xl px-6 text-white flex flex-col items-center animate-fade-slide-up"
+>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold leading-tight text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)]">
                         Descubre Asturias a tu Ritmo
                     </h1>

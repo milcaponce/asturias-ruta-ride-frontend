@@ -37,4 +37,21 @@
       shadow-md hover:shadow-lg;
   }
 
+@layer utilities {
+  .animate-fade-slide-up {
+    @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
   }
+
+  .animate-fade-slide-up.show {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* ♿ Respeto a usuarios con sensibilidad al movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-slide-up,
+  .animate-fade-slide-up.show {
+    @apply transition-none translate-y-0 opacity-100;
+  }
+}
+}
