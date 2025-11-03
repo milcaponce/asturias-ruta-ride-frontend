@@ -12,10 +12,10 @@ import SharedTripsPage from "./pages/SharedTripsPage";
 
 export default function App() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main className="pt-20">
+      <main className="flex-grow pt-20">
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<HomePage />} />
@@ -31,6 +31,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
