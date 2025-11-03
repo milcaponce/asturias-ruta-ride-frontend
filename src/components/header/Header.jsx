@@ -34,9 +34,11 @@ const Header = () => {
                         <Link to="/preguntas-frecuentes" className="hover:text-brandGreen transition-colors duration-200">
                             Preguntas Frecuentes
                         </Link>
-                        <Link to="/contacto" className="hover:text-brandGreen transition-colors duration-200">
-                            Contacto
-                        </Link>
+
+                        {/* 🔒 FUTURA FEATURE: Viajes Compartidos */}
+                        {/*<Link to="/viajes-compartidos" className="hover:text-brandGreen transition-colors duration-200">
+                            Viajes compartidos
+                        </Link>*/}
                     </nav>
 
           {/* Auth / User Section */}
@@ -114,13 +116,15 @@ const Header = () => {
                         >
                             Preguntas Frecuentes
                         </Link>
-                        <Link 
-                        to="/contacto" 
+
+                        {/* 🔒 FUTURA FEATURE: Viajes Compartidos */}
+                        {/*<Link 
+                        to="/viajes-compartidos" 
                         onClick={closeMenu}
                         className="block hover:text-brandGreen transition-colors duration-200"
                         >
-                            Contacto
-                        </Link>
+                            Viajes compartidos
+                        </Link>*/}
                     </nav>
                 )}
             </header>
