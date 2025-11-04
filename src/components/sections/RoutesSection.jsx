@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import RouteCard from "../card/RouteCard";
 import { fetchRoutes } from "../../services/routesService";
 
-export default function RoutesSection({ title = "Todas las rutas" }) {
+export default function RoutesSection({ title }) {
   const [routes, setRoutes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
