@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchRouteById } from "../services/routesService";
+import RouteMap from "../components/map/RouteMap";
 
 
 export default function RouteDetailPage() {
@@ -36,14 +37,19 @@ export default function RouteDetailPage() {
                 <p><strong>Kilómetros:</strong> {route.kilometres} km</p>
             </div>
 
-            <p className="mt-4 text-gray-700">{route.description}</p>
+            <p className="mt-4 text-gray-700">{route.description || "No hay descripción disponible para esta ruta."}</p>
+
+            <RouteMap
+            latitude={route.latitude}
+            longitude={route.longitude}
+            name={route.name}
+            />
 
             <div className="mt-8 text-center">
                 <Link
                 to="/routes"
-                className="px-5 py-2 bg-brandDarkGreen text-white rounded-lg hover:bg-green-700 transition"
-                >
-                ← Volver a rutas
+                className="btn-primary"
+                > Volver a rutas
                 </Link>
             </div>
         </div>
