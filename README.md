@@ -191,7 +191,7 @@ npm run test:ui
 | Fondo alternativo | `#F4F1EE` |
 | Texto principal | `#2E2E2E` |
 | Texto secundario | `#4A6981` |
-| Texto tenue  `#6A6A6A` |
+| Texto tenue |  `#6A6A6A` |
 
 ---
 
