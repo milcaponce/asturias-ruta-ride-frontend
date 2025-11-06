@@ -1,29 +1,28 @@
-#  Asturias Ruta & Ride – Frontend
+#  🌿 Asturias Ruta & Ride – Frontend
 
-Aplicación web desarrollada con **React** que permite a los usuarios explorar rutas de senderismo por Asturias, consultar su detalle, registrarse, verificar su cuenta mediante correo electrónico y autenticarse con JWT. El proyecto se integra con la API del backend del mismo nombre.
+Aplicación web desarrollada con **React + Vite** que permite a los usuarios explorar rutas de senderismo por Asturias, consultar su detalle, registrarse, verificar su cuenta mediante correo electrónico y autenticarse con **JWT**.  
+Este frontend se integra con la API del backend del mismo nombre.
 
 ---
 
 ##  1. Descripción del proyecto
 
-Este frontend proporciona una interfaz interactiva para visualizar rutas de senderismo en Asturias y gestionar usuarios mediante autenticación.  
-Se conecta al backend para obtener datos en tiempo real, mostrar información de rutas y gestionar el flujo completo de registro, verificación por correo e inicio de sesión.
+El frontend proporciona una interfaz intuitiva y accesible para explorar rutas naturales de Asturias.  
+Se conecta al backend para mostrar rutas en tiempo real, gestionar usuarios y validar el flujo completo de registro, verificación por correo e inicio de sesión.
 
-El objetivo del proyecto es ofrecer una experiencia accesible y visualmente atractiva para explorar rutas naturales, con acceso para usuarios registrados y no registrados.
+El objetivo principal es ofrecer una experiencia visual y fluida, tanto para visitantes como para usuarios autenticados, conectando naturaleza y tecnología.
 
 ---
 
 ##  2. Características principales
 
-- Visualización de rutas con datos obtenidos desde el backend
-- Página de detalle con información extendida de cada ruta
-- Registro de usuario mediante formulario validado
-- Verificación de email integrada con backend
-- Inicio de sesión con JWT y persistencia de sesión
-- Contexto global de autenticación (**AuthContext**) para gestionar sesión
-- Logout y protección básica de navegación según estado del usuario
-- Estilos con **TailwindCSS**
-- Preparado para despliegue y expansión futura
+- 🌄 Visualización dinámica de rutas desde el backend  
+- 🗺️ Detalle completo de cada ruta (área, distancia, dificultad, imagen, descripción)  
+- 🧑‍💻 Registro y autenticación con verificación por correo  
+- 🔐 Gestión de sesión mediante **JWT** (persistente en `localStorage`)  
+- ⚙️ Contexto global de autenticación con **AuthContext**  
+- 🎨 Estilos responsivos con **TailwindCSS**  
+- 💡 Preparado para integración con mapas y nuevas funcionalidades  
 
 ---
 
@@ -44,7 +43,7 @@ El objetivo del proyecto es ofrecer una experiencia accesible y visualmente atra
 
 ##  4. Arquitectura del proyecto
 
-Estructura basada en componentes y páginas, con separación por dominio:
+Estructura modular, limpia y escalable:
 
 ```
 src/
@@ -107,12 +106,12 @@ import.meta.env.VITE_API_URL
 
 | Ruta            | Página           | Descripción                                     |
 |-----------------|------------------|-------------------------------------------------|
-| `/home`         | HomePage         | Página inicial con presentación                 |
-| `/routes`       | RoutesPage       | Listado de rutas obtenidas desde el backend     |
+| `/home`         | HomePage         | Página inicial de presentación                 |
+| `/routes`       | RoutesPage       | Listado de rutas obtenidas del backend     |
 | `/routes/:id`   | RouteDetailPage  | Detalle de cada ruta                            |
 | `/register`     | RegisterPage     | Formulario de registro                          |
-| `/verify-email` | VerifyEmailPage  | Validación del token enviado al correo          |
-| `/login`        | LoginPage        | Autenticación con JWT                           |
+| `/verify-email` | VerifyEmailPage  | Confirmación del token recibido por correo         |
+| `/login`        | LoginPage        | Inicio de sesión con JWT                           |
 
 ---
 
@@ -120,19 +119,18 @@ import.meta.env.VITE_API_URL
 
 La comunicación se realiza mediante `fetch` utilizando los endpoints del backend.
 
-**Ejemplo de consumo:**
 
 ```js
 const res = await fetch(`${import.meta.env.VITE_API_URL}/routes`);
 ```
 
-El token JWT se guarda en `localStorage` y se consume mediante **AuthContext**.
+El token JWT se almacena en `localStorage` y se gestiona mediante **AuthContext**.
 
 ---
 
 ##  9. Testing
 
-El proyecto incluye **Vitest + Testing Library** para testear componentes y lógica.
+Tests básicos implementados con **Vitest + Testing Library**.
 
 **Ejecutar los tests:**
 
@@ -140,7 +138,7 @@ El proyecto incluye **Vitest + Testing Library** para testear componentes y lóg
 npm run test
 ```
 
-**Modo interfaz:**
+**Modo visual:**
 
 ```bash
 npm run test:ui
@@ -148,20 +146,65 @@ npm run test:ui
 
 ---
 
-##  10. Mejoras pendientes / Roadmap
+##  10. Roadmap y mejoras pendientes
 
-- Añadir vista de *Preguntas Frecuentes*
-- Añadir favoritos por usuario (requiere endpoints)
-- Proteger rutas del frontend según estado de autenticación
-- Mostrar mapa con ubicación de cada ruta
-- Soporte responsive avanzado y modo oscuro
-- Página 404 personalizada
-- Internacionalización (ES/EN)
+🗺️ Integración de mapas con Leaflet
+
+⭐ Favoritos por usuario
+
+🔐 Protección de rutas según rol o autenticación
+
+📱 Modo oscuro y diseño responsive completo
+
+❓ Página de Preguntas Frecuentes (FAQ)
+
+🌍 Internacionalización (ES/EN)
+
+⚠️ Página 404 personalizada
 
 ---
 
-## ✨ 11. Autoría
+## 🌈 11. Demo & Presentación
 
-Proyecto desarrollado como parte del bootcamp **Full Stack Developer** en **Factoría F5 Asturias**.
+| Pantalla | Vista |
+|----------|--------|
+| Home | <img src="./docs/demo/arr-home-page.png" alt="Home" width="600" /> |
+| Listado de Rutas | <img src="./docs/demo/arr-routes-page.png" alt="Listado de Rutas" width="600" /> |
+| Detalle de Ruta | <img src="./docs/demo/arr-route-detail-page.png" alt="Detalle de Ruta" width="600" /> |
+| Register | <img src="./docs/demo/arr-register-page.png" alt="Register" width="600" /> |
+| Login | <img src="./docs/demo/arr-login-page.png" alt="Login" width="600" />
+
+
+> 🎬 [**Presentación completa en Canva](https://www.canva.com/design/DAG33nGWu-M/vWakPaQiWbtmhJTmKPBihA/edit?utm_content=DAG33nGWu-M&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
+
+---
+
+## 🎨 12. Paleta de colores del diseño
+
+| Propósito | HEX |
+|-----------|-------|
+| Verde principal | `#82B245` |
+| Verde oscuro | `#3C631F` |
+| Azul acento | `#55BBCC` |
+| Rojo acento | `#D9534F` |
+| Fondo claro | `#F8F8F8` |
+| Fondo alternativo | `#F4F1EE` |
+| Texto principal | `#2E2E2E` |
+| Texto secundario | `#4A6981` |
+| Texto tenue  `#6A6A6A` |
+
+---
+
+## ✨ 13. Autoría
+
+Proyecto desarrollado como parte del bootcamp **Full Stack Developer** - **Factoría F5 Asturias**.
+Integración completa con el backend **Asturias Ruta & Ride.**
 
 **Autora:** Milca Ponce
+📧 Contacto: milcaponce.dev@gmail.com
+
+---
+
+
+
+
